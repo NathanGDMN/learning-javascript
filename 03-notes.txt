@@ -1,0 +1,17 @@
+Conventions:
+-Use single quotes as much as you can ''
+-Only us double qutoes when you have to
+    -Like when needing quotes inside of another string
+-If you need to insert  a value into a string or write on multiple lines use a template string
+
+Template Strings
+-Declared using ``
+-Ex. Interpolation (inserting values into string)
+    Goal: 'Items (2): $28.94'
+    With concatenation:
+        'Items (' + (1+1) + '): $' + (2095+799)/100
+    With template string:
+        `Items (${1+1}): $${(2095+799)/100}`
+-Template strings allow multiline strings:
+    `some
+    text`

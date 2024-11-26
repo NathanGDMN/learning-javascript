@@ -1,0 +1,12 @@
+Common Variable Naming Conventions and When to Use:
+camelCase: helloWorld
+    -Standard naming convention for Javascript
+PascalCase: HelloWorld
+    -Only one use in Javascript (talk about later at somepoint)
+kebab-case: hello-world
+    -Used in Html, CSS and filenames
+snake_case: hello_world
+    -Common in other programming languages not used in Javascript
+
+Best practice to use 'const' for declaring variables, and only using 'let' when we know we'll need to reassign it
+    -Don't use 'var' its out of date
