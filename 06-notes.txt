@@ -1,0 +1,36 @@
+Comparison Operators:
+>: Greater Than
+<: Less Than
+>=: Greater Than or Equal To 
+<=: Less Than or Equal To 
+
+===: Equal To
+==: Equal To (with conversion to same type)
+!==: Not equal to
+!=: Not equal to (with conversion to same type)
+    *By default only use === and !==.
+
+Comparision Operators have a lower order of operations thatn math operators.
+
+Logical Operators then come after comparision operators
+
+Logical Operators:
+&& -  AND
+|| - OR
+! - NOT
+
+Scope with '{}':
+-Any variable created within '{}' will only exist within said brackets
+
+Truthy and Falsy Values:
+-All falsy values:
+    false, 0, '', 
+    NaN, -Comes from illegal math  
+    undefined, -A declared (non-constant) variable, with no assigned value
+    null - Learn later
+-The rest are truthy
+
+If statements, shortcut operators:
+?, : - Ternary Operator, way of shortening if statements and allows them to be stored in  variables
+&& -  Guard Operator, can be used outside if conditions to only allow the operation to the right of the '&&' to run when the operation to the left of the '&&' is true. can also be store in variables
+|| - Default Operator, can be used outside if conditions to only allow the operation to the right of the '||' to run when the operation to the left of the '||' is false. can also be store in variables
