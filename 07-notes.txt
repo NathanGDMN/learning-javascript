@@ -1,0 +1,10 @@
+You want to define functions within <script> tags as they are loaded when you open a page and then call them within other objects.
+
+Any variables defined within a function are limited to only being used within said function.
+
+If you want to define a global variable, you can declare a variable within the <script> tags but outside of any function.
+
+To define pararmeters for a function simply include thier name within the brackets during the function declaration:
+    function calculateTax(cost, taxPercent){...}
+You can set default values for these parameters by setting them equal to something within this declaration.
+    function calculateTax(cost, taxPercent = 0.1){...}
