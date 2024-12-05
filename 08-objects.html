@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Objects
+    </title>
+  </head>
+  <body>
+    <script>
+      const product = { //An object is defined by: {}
+        name: 'socks', //<-Example of a property
+        price: 1090
+      };
+      console.log(product);
+      console.log(product.name);
+      console.log(product.price);
+
+      product.name = 'cotton socks';
+      console.log(product.name);
+
+      product.newProperty = true; //You can add properties to existing objects outside of declaration
+      console.log(product.newProperty);
+
+      delete product.newProperty; //You can also delete properties outside of declaration
+      console.log(product.newProperty);
+
+      //Differing Notations:
+      console.log('-----Differing Notations:-----');
+
+      const product2 = {
+        name: 'shirt',
+        ['delivery-time']: '1 day' //Bracket notation allows use to declare variables that you wouldn't be able to with dot notation
+      };
+      console.log(product2); 
+      console.log(product2.name); //Dot notation
+      console.log(product2['name']); //Bracket notation
+      //console.log(product2.delivery-time); //Throws an error
+      console.log(product2['delivery-time']);
+      //product2[variableExample] = ''; //Could even use brakcet notation to utilize existing variables
+
+      //Utilizing JSON object:
+      console.log('-----Utilizing JSON Object:-----');
+
+      const JSONstring = JSON.stringify(product2); //Converting a JS object into JSON
+      console.log(JSONstring);
+      const JSstring = JSON.parse(JSONstring); //Converting back to JS
+      console.log(JSstring);
+
+      //Utilizing localStorage object:
+      console.log('-----Utilizing localStorage Object:-----');
+
+      localStorage.setItem('message', 'hello'); //Saving to local storage
+      console.log(localStorage.getItem('message')); //Retrieving from localStorage
+      localStorage.removeItem('message'); //How to delete a string from local storage
+
+      //Properties and methods of common objects
+      console.log('-----Properties and Methods:-----')
+
+      console.log('hello'.length);
+      console.log('hello'.toUpperCase());
+
+      //Object are references
+      console.log('-----Objects as References:-----')
+
+      const object1 = { //Object's are simply pointers or 'references' to a location in memory 
+        message: 'hello'
+      };
+      const object2 = object1; //Copied by reference (see call below)
+      object1.message = 'Good job!'; //Because object1 is just a reference to a location in memory, we are able to change properties of it despite in being declared with const.
+      //The const simply prevents us from changing the reference to the variable
+      console.log(object1);
+      console.log(object2); //Because object2 is simply a copied reference to the same object as object1 when we change object1 we are changing both objects.
+
+      const object3 = {
+        message: 'Good job!'
+      };
+      console.log(object3 === object1); //Returns false because it is not comparing the two objects but instead the two  different references to two identical but seperate objects in memory 
+
+      //Object Shortcuts
+      console.log('-----Objects Shortcuts:-----')
+
+      const object4 = {
+        message: 'Good job!',
+        price: 
+799      };
+      const {message, price} = object4; /*Equivalent to: const message = object4.message;
+      price = object4.price;
+      */
+     console.log(message);
+     console.log(price);
+
+      const object5 = {
+        message, //If you want to create a variable in an object equal in both name and value to an existing varibale you can just but the variable name in the property declaration. Equivalent to: message : message,
+        /**
+         * 
+         */
+        method: function function1() {
+            console.log('method');
+        },
+        shortcutMethod (){ //Shorter way of writing the method above
+            console.log('method');
+        }
+      };
+      console.log(object5);
+      object5.method();
+      object5.shortcutMethod();
+    </script>
+  </body>
+</html>
+
+    

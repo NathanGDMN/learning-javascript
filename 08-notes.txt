@@ -1,0 +1,38 @@
+objects are defined by {}
+
+properties can be defined after the object definition:
+    const object = {
+        name:'object1'
+    }
+    object.newProperty = true; //Declares a new property
+
+you can also delete properties outside of object declaration:
+    delete object.newProperty;
+
+Bracket Notation:
+-Bracket notation allows use to declare variables that you wouldn't be able to with dot notation
+-Bracket notation allows you to pass variables to an object:
+    product2[variable] = 1;
+
+JSON object:
+-Helps us convert a javascript object to JSON
+
+Localstorage object:
+-Javascript is reloaded everytime you refresh a page, so variables are all refreshed as well
+-Localstorage allows us to store data more permanently
+-Localstorage only supports strings
+-If you want to save a JS object in local storage, you can use JSON.stringify() to turn it into a JSON string then convert it back when you retrieve it later
+
+Null vs undefined:
+-Null is when something is intentionally undefined
+
+Properties of Objects as references:
+-Anytime you define an object you are simply creating a pointer or 'reference' to a loaction in memory.
+-This allows us to change properties of const objects despite thier const declaration
+    -You just can't change the reference to a loaction in memory
+-Means that when we set one object equal to another, we are simply creating a second variable holding the same reference to a location in memory.
+    -In which case, editting properties of either of these objects will edit the properties of both.
+-Means the objects cannot be compared directly as if you form any conditional statemnt with objects you will simply be comparing memory references, instead of the objects themseleves
+
+Object Shortcuts:
+-See bottom of lesson 08 
