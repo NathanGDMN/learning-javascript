@@ -20,7 +20,7 @@ JSON object:
 Localstorage object:
 -Javascript is reloaded everytime you refresh a page, so variables are all refreshed as well
 -Localstorage allows us to store data more permanently
--Localstorage only supports strings
+-Localstorage only supports strings (all information must be stored in string format)
 -If you want to save a JS object in local storage, you can use JSON.stringify() to turn it into a JSON string then convert it back when you retrieve it later
 
 Null vs undefined:

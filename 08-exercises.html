@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Exercises
+    </title>
+  </head>
+  <body>
+    <script>
+      //8a.
+      const product = { //An object is defined by: {}
+        name: 'basketball', //<-Example of a property
+        price: 2095
+      };
+      console.log(product);
+
+      //8b.
+      product.price += 500;
+      console.log(product);
+
+      //8c.
+      product['delivery-time'] = '3 days';
+      console.log(product);
+
+      //8d.
+      const product2 = {
+        name: 'soccer-ball',
+        price: 1500
+      } ;
+
+      function comparePrice(product1, product2){
+        if (product1.price < product2.price){
+            return product1.name;
+        } else {
+            return product2.name;
+        }
+      };
+
+      console.log(comparePrice(product, product2));
+
+      //8e.
+      const product3 = product;
+      console.log(product3);
+
+      function isSameProduct(product1, product2){
+        if (product1.name === product2.name && product1.price === product2.price){
+            return true
+        } else {
+            return false
+        }
+      };
+
+      console.log(isSameProduct(product, product3));
+      
+      //8f.
+      console.log('Good Morning'.toLowerCase());
+
+      //8g.
+      console.log('test'.repeat(2));
+      
+      //8... Practice with localStorage and JSON objects
+      const loading = {
+        progress: 53
+      };
+      console.log(loading)
+
+      localStorage.setItem('load', JSON.stringify(loading));
+      console.log(JSON.parse(localStorage.getItem('load')))
+      
+    </script>
+  </body>
+</html>
