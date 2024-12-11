@@ -34,7 +34,7 @@
             cost += 10;
           }
 
-          document.querySelector('.js-total-cost').innerText = `$${cost}`;
+          document.querySelector('.js-total-cost').innerText = `$${cost.toFixed(2)}`; //toFixed(2) makes sure the number in truncated to two decimal places
 
         }
 

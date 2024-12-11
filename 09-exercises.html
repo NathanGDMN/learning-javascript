@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      DOM Exercises
+    </title>
+  </head>
+  <body>
+    <button>9a</button>
+    
+    <button class="js-secondButton">9b</button>
+    <br>
+    
+    <button onclick="handleHeads()">heads</button>
+    <button onclick="handleTails()">tails</button>
+    <p class="js-result"></p>
+
+    <input class="input" placeholder="Name" onkeydown="handlekeydown(event)">
+    <button onclick="handleInput()">Submit</button>
+    <p class="js-output"></p>
+
+    <input class="js-updatingInput"placeholder="Type something" onkeyup="handlekeyup()">
+    <p class="js-updatingOutput"></p>
+
+    <script>
+        //9a
+        console.log(document.querySelector('button'));
+        //9b
+        document.querySelector(".js-secondButton").innerText = '9b done!';
+        //9c
+        function handleHeads(){
+            changeResult('heads');
+        }
+        function handleTails(){
+            changeResult('tails');
+        }
+        function changeResult(selection){
+            document.querySelector('.js-result').innerText = `You chose: ${selection}`;
+        }
+        //9d
+        function handleInput(){
+            input = document.querySelector('.input').value;
+            document.querySelector('.output').innerText = `Your name is: ${input}`;
+        }
+        //9e
+        function handlekeydown(event){
+            if(event.key === 'Enter'){
+                handleInput();
+            }
+        }
+        //9h
+        function handlekeyup(){
+            input = document.querySelector('.js-updatingInput').value;
+            document.querySelector('.js-updatingOutput').innerText = input;
+        }
+
+    </script>
+  </body>
+</html>
+
+    
