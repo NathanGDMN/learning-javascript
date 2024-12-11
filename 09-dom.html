@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      DOM
+    </title>
+  </head>
+  <body>
+    <button>hello</button>
+    <button class="js-button">second button</button>
+
+    <script>
+    //   console.log(document.title);
+    //   document.title = 'Good job!';
+
+      //-----Learning the body object
+    //   console.log(document.body);
+    //   console.log(typeof document.body); //When you call a document.body, js converts the body into a js object
+
+    //   console.log(document.body.innerHTML);
+    //   document.body.innerHTML = '<button>Good job!</button>';
+
+      //-----Query Selector method
+    //   console.log(document.querySelector('button'));
+
+      //-----innerHTML property
+      console.log(document.querySelector('button').innerHTML);
+      document.querySelector('button')
+        .innerHTML = 'changed';
+
+      //-----querySelector method
+        const buttonElement = document.querySelector('.js-button'); //The '.' signals to querySelector that its looking for a class
+        console.log(buttonElement);
+    </script>
+  </body>
+</html>
+
+    

@@ -1,0 +1,22 @@
+The DOM is simply a built-in object in javascript.
+
+The DOM - Document Object Model, represents/models the wedpage.
+    -By changing the 'document' object you change the webpages
+
+document.querySelector('element'), allows us to select and return any html 'element' from javascript.
+    -Ex. document.querySelector('element') retrieves the first <button> element from the html
+    -You can target specific elements--not just the first one, by giving the interested object a class property then looking for that class in the query selector: document.querySelector('.js-elementClass')
+        -When you are giving a class a name for the sole purpose of using it within JS it is common practice to start the class name with the prefix 'js-'
+
+
+every retrieved html element (whether that's through query select or or document.body.element), has an innerHtml property that allows you to change the html within the element
+    -*innerHtml also returns any formatting withing your html, if you simply wanted to change the text within a button for example, you could use .innerText instead to return the text without the formatting (see 09-dom-projects)
+
+certain html elements called 'block elements' tak up an entire line all by themselves ex.<p>
+
+You can get <input> values from the DOM using document.querySelector('input').value. *Whenever you get a value from the DOM it will be a string
+
+Methods onclick and onkeydown are called event listeners, when triggered they produce an event object that can be used. (See 09-dom-projects)
+
+All objects we have been using so far belong to the 'window' object. The window object represents the browser. Examples of what it contains are: the console (window.console), pop-ups(window.alert), the DOM (window.document).
+    -By default, you do not need to type 'window." when you want to access these objects
