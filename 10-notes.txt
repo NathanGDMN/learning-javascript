@@ -1,0 +1,23 @@
+Styles can be added to your webpage by having a <style> tag in the <head> of your webpage.
+
+Styles can be changed using javascript by adding or removing classes from the document.queryselector('.object').classList using .add() and .remove()
+    -Then having specific styles for the added classes
+
+You can manually add extra classes to a element by simply writting a second classname withing the class attribute and seperating the classes with a space. Ex. class= "class1 class2"
+
+*The order in which styles are declared in the <style> tag determines how they are applied.
+    -Styles declared first will be applied first, styles declared after will override earlier styles if there is any conflicting style assignments.
+
+Notes on style:
+    -Padding is space inside an element
+        -You can manually assign a padding-top, padding-bottom, padding-left and padding-right, within an element. But you can also simply define a 'padding' style.
+            Ex. padding: 10px; //Adds 10px of padding to all sides within an element
+            Ex. padding: 10px 15px; //Adds 10px of padding to the top and bottom of an element and 15px of padding to the left and right of an element
+    -Margin is space outside an element
+    -text is usually edited using 'font' and not 'text'
+    -the 'cursor' property allows you to change what the cursor looks like when hovering over an element
+
+Seperating HTML, CSS, and JS into seperate files:
+-HTML file still acts as the main file.
+-JS can be linked to the HTML file by using <script src="filepath"></script> within the <body>
+-CSS can be linked to the HTML file by using <link rel="stylesheet" href="filepath">
