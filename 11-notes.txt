@@ -1,0 +1,14 @@
+If you want to check if a variable is an array, you can use Array.isArray(array1);
+    If you use typeof it will return object not array
+
+Because arrays are objects they have built-in some attributes and methods
+    .length (length of array)
+    .push() (appends element between the brackets to the end of the array)
+    .splice(i, j) (removes j elements from array starting at index i)
+
+Arrays in javascript can hold values of different types.
+    ex.  [1, 'hello', true, {name: 'socks'}, [1,2]]
+
+When to use each kind of loop:
+    For loops - for standard loops (have an increment, and set number of iterations you want to run)
+    While loops - for non-standard loops (no increment step, and an unclear amount of iterations)
