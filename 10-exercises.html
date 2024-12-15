@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Exercises 10
+    </title>
+
+    <style>
+      .amazon-button{
+        background-color: rgb(255, 216, 20);
+        border: none;
+        border-radius: 30px;
+        font-size: 15px;
+        padding: 8px 40px;
+      }
+
+      .uber-request-button{
+        background-color: black;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        font-weight: bold;
+        padding: 10px 15px;
+      }
+      .uber-schedule-button{
+        background-color: rgb(230, 230, 230);
+        border: none;
+        border-radius: 5px;
+        font-weight: bold;
+        padding: 10px 15px;
+      }
+      
+      .untoggled-button{
+        background-color: black;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        cursor: pointer;
+        margin-right: 10px;
+        padding: 10px 15px;
+      }
+      .toggled-button{
+        background-color: rgb(230, 230, 230);
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <!--10a. 10b.-->
+    <button class="amazon-button">Add to Cart</button>
+    <br>
+    <button class="uber-request-button">Request now</button>
+    <button class="uber-schedule-button">Schedule for later</button>
+
+    <!--10c.-->
+    <br>
+    <button class="js-button">Test</button>
+
+    <!--10d. 10e. 10f. 10g.-->
+    <br>
+    <button onclick="toggleButton('js-gaming')" class="js-gaming untoggled-button">Gaming</button>
+    <button onclick="toggleButton('js-music')"  class="js-music untoggled-button">Music</button>
+    <button onclick="toggleButton('js-tech')" class="js-tech untoggled-button">Tech</button>
+
+    <script>
+        //10c.
+        console.log(document.querySelector('.js-button').classList.contains('js-button'));
+
+        //10d. 10e. 10f. 10g.
+        function toggleButton(buttonName){
+            const classList = document.querySelector(`.${buttonName}`).classList
+            if (classList.contains('toggled-button')){
+                classList.remove('toggled-button')
+            }else{
+                classList.add('toggled-button')
+            }
+
+        }
+
+    </script>
+  </body>
+</html>
+
+    
