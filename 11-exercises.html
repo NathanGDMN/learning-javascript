@@ -114,6 +114,110 @@
         }
         console.log(minMax([1,-3,5]));
         console.log(minMax([-2,3,-5,7,10]));
+
+        //11o.
+        console.log('11o. ');
+        function findSearch(array){
+            for (let i=0; i<array.length; i++){
+                if (array[i] === 'search'){
+                    console.log(i);
+                    return;
+                }
+            }
+            console.log(-1);
+        }
+        findSearch(['hello','world','search','good']);
+        findSearch(['not', 'found']);
+        findSearch(['hello','world','search','good','search']);
+
+        //11q.
+        function findIndex(array, word){
+            for (let i=0; i<array.length; i++){
+                if (array[i] === word){
+                    return i;
+                }
+            }
+            return -1
+        }
+        console.log(findIndex(['green','red','blue','red',], 'red'));
+        console.log(findIndex(['green','red','blue','red',], 'yellow'));
+
+        //11r.
+        function removeEgg(foods){
+            noEggs = [];
+            for (let i=0; i<foods.length; i++){
+                if (foods[i] === 'egg'){
+                    continue
+                }
+                noEggs.push(foods[i]);
+            }
+            return noEggs;
+        }
+        console.log(removeEgg(['egg','apple','egg','egg','ham']));
+
+        //11s.
+        function removeTwoEgg(foods){
+            noEggs = [];
+            eggCount = 0;
+            for (let i=0; i<foods.length; i++){
+                if (foods[i] === 'egg' && eggCount < 2){
+                    eggCount++;
+                    continue
+                }
+                noEggs.push(foods[i]);
+            }
+            return noEggs;
+        }
+        console.log(removeTwoEgg(['egg','apple','egg','egg','ham']));
+
+        //11t. & 11u.
+        function removeLastTwoEgg(foods){
+            foods = foods.slice().reverse()
+            noEggs = [];
+            eggCount = 0;
+            for (let i=0; i<foods.length; i++){
+                if (foods[i] === 'egg' && eggCount < 2){
+                    eggCount++;
+                    continue
+                }
+                noEggs.push(foods[i]);
+            }
+            return noEggs.reverse();
+        }
+        const foods = ['egg','apple','egg','egg','ham'];
+        console.log(removeLastTwoEgg(foods));
+        console.log(foods);
+
+        //11v.
+        for (let i=1; i<=20; i++){
+            
+            if (i % 3 === 0 && i % 5 === 0){
+                console.log('FizzBuzz');
+                continue;
+            }
+            if(i % 3 === 0){
+                console.log('Fizz');
+                continue;
+            }
+            if(i % 5 === 0){
+                console.log('Buzz');
+                continue;
+            }
+            console.log(i);
+        }
+
+        //11w.
+        function unique(array){
+            for (let i=array.length-1; i>=0; i--){
+                if (i != findIndex(array, array[i])){
+                    array.splice(i, 1);
+                }
+            }
+            return array;
+        }
+        console.log(unique(['green','red','blue','red']));
+
+
     </script>
   </body>
 </html>

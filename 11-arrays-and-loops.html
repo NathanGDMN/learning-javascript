@@ -78,6 +78,24 @@
             numsDoubled.push(num*2);
         }
         console.log(numsDoubled);
+
+        //Arrays as references:
+        console.log('-----Arrays as references-----');
+        const array1 = [1,2,3];
+        const array2 = array1; //Creates a reference to array1
+        const array3 = array1.slice(); //Creates a copy of array1
+        array1.push(4);
+        console.log(array2);
+        console.log(array3);
+
+        //Destructureing arrays
+        console.log('-----Destructuring arrays-----');
+        const [firstValue, secondValue, thirdValue] = [1,2,3];
+        console.log(firstValue, secondValue, thirdValue);
+
+        
+        
+
     </script>
   </body>
 </html>
