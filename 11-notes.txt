@@ -1,3 +1,5 @@
+You can still edit arrays when you declare them with const.
+
 If you want to check if a variable is an array, you can use Array.isArray(array1);
     If you use typeof it will return object not array
 
@@ -12,3 +14,20 @@ Arrays in javascript can hold values of different types.
 When to use each kind of loop:
     For loops - for standard loops (have an increment, and set number of iterations you want to run)
     While loops - for non-standard loops (no increment step, and an unclear amount of iterations)
+
+You can use CSS grids to align multiple items into columns using the display: grid;. By giving this property to a <div> all elements in said div will be placed into the columns, in a snake order. Ex. Grid with three columns:
+    | 1 | 2 | 3 |
+    | 4 | 5 | 6 |
+
+    The property grid-template-columns allows you to format your grid:
+        Ex. grid-template-columns: 200px 150px 100px; -creates three columns of widths: 200px, 150px, 100px; respectively
+
+    column-gap allows you to edit the spacing between columns.
+    row-gap allows you to edit the spacing between rows.
+        *Note only applys spacing between elements of the grid if another grid is adjacent, will not apply spacing between that grid's elements and the current one
+    
+    align-items allows you to choose how elements in the grid are alligned.
+        By default, align-items is set to stretch, this means than elements in the grid are stretched to fill thier 'cell'
+        You can use align-items: center; to center text elements in a grid.
+    
+    
