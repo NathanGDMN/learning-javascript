@@ -1,0 +1,34 @@
+Functions declared using the 'function' key word can be used anywhere between the scope of the function block (above or below it) -- called hoisting
+
+Functions can be stored within variables. Ex.
+    const function1= function (){
+            console.log('Hello2');
+    };
+    function1();
+
+This method of declaration can be used to create methods within objects:
+    const object1 = {
+        num : 2,
+        fun : function(){
+            console.log('Hello3');
+        }
+    };
+    object1.fun();
+
+Or pass functions to other functions as parameters:
+    function run(param){
+        param();
+    }
+    run(function(){
+        console.log('Hello4');
+    })
+
+setTimeout(funct, timeInMilliseconds) is a function that can be used to call another function after a set period of time.
+    *Note, the compiler wont wait until this is done executing to run code past the setTimeout command--all code beneath setTimeout will run once the function in setTimeout is put into 'queue'
+
+setInterval(function, timeInMilliseconds) is a function that can be used to call another function after a set period of time, and then keep calling that function every timeInMilliseconds later.
+
+array.forEach(function(element, index){...}) is an alternative way of declaring a loop. The 'element' and 'index' variables can be used within the nexted function() to get the current element and index respectively.
+    *Note the continue and break keaywords are not supporting in .forEach()
+        -If you want to use contiue you can simply use the line 'return;' which in a forEach() loop does the same thing--does not stop whole loop
+        -There is no way of breaking though

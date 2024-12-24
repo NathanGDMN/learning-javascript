@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Exercises 12
+    </title>
+  </head>
+  <body>
+    <button onclick="
+        document.querySelector('.twelveC').innerText = 'Loading...'
+        setTimeout(function(){
+            document.querySelector('.twelveC').innerText = 'Finished!';
+        }, 1000);
+    " class="twelveC">Start</button>
+
+    <br>
+
+    <button onclick="
+        handleAddToCart();
+    ">Add to cart</button>
+    <p class="add-to-cart-paragraph"></p>
+
+    <br>
+    
+    <button onclick="
+        handleAddTitle()
+    ">Add</button>
+    <button onclick="
+        handleRemoveTitle()
+    ">Remove</button>
+
+    <script>
+        //12a.
+        const add = function(){
+            console.log(2+3);
+        };
+        add();
+        add();
+        
+        //12b.
+        function runTwice(funct){
+            funct();
+            funct();
+        }
+        runTwice(function(){console.log('12b');});
+        runTwice(add);
+        
+        //12f.
+        let existingTimeout = 'No timeout set!';
+        function handleAddToCart(){
+            document.querySelector('.add-to-cart-paragraph').innerText = 'Added';
+            clearTimeout(existingTimeout);
+            existingTimeout = setTimeout(function(){
+                document.querySelector('.add-to-cart-paragraph').innerText = '';
+            }, 2000);
+        }
+        
+        //12g.
+        let notificationCount = 1;
+        const originalTitle = document.querySelector('title').innerText;
+        let twelveG = 'Interval ID' 
+        twelveG = setInterval(function(){
+            document.querySelector('title').innerText = `(${notificationCount}) ${originalTitle}`;
+            notificationCount++;
+        }, 1000);
+
+        setTimeout(function(){
+            clearInterval(twelveG);
+        },10000);
+
+        //12h.
+        function handleAddTitle(){
+            notificationCount++;
+            document.querySelector('title').innerText = `(${notificationCount}) ${originalTitle}`;
+        }
+        function handleRemoveTitle(){
+            notificationCount--;
+            if (notificationCount <= 0){ //<-12i.
+                document.querySelector('title').innerText = originalTitle;
+            }else{
+                document.querySelector('title').innerText = `(${notificationCount}) ${originalTitle}`;
+            }
+        }
+
+    </script>
+  </body>
+</html>
+
+    
