@@ -32,3 +32,43 @@ array.forEach(function(element, index){...}) is an alternative way of declaring 
     *Note the continue and break keaywords are not supporting in .forEach()
         -If you want to use contiue you can simply use the line 'return;' which in a forEach() loop does the same thing--does not stop whole loop
         -There is no way of breaking though
+
+Arrow functions are like normal functions variables, bu tinstead of using the 'function' keyword in the declaration you use '=>' (see 12-advanced-functions.html).
+    -Arrow functions have shortcuts for writing a function with one parameter and a function that only returns a given value. (see 12-advanced-functions.html)
+    -When passing a function to another function, it is recommended to use arrow functions as it is easier to read, such as in a for each loop
+    *It is not possible to use hoisting when using arrow functions -- functions must be declared before use
+
+When saving a function within an object (a method), use the short hand method syntax:
+    const object2 = {
+            method : function(){
+                //Not this
+            },
+            method(){
+                //But this
+            }
+        };
+
+For events instead of just adding attributes such as 'onclick' to your html objects, you can simply create an event listener for said object in js:
+    document.querySelector('button').addEventListener('click', ()=>{
+        console.log('horayy')
+    });
+Event listeners have some advangages over onclick and other on attributes such as:
+    -You can add multiple event listeners to one object--you can execute multiple different, apart segments of code at once.
+    -You are able to remove eventlisteners, able to do something on click sometimes but not do that at other times.
+    -It is best practice to use event listeners instead of onclick.
+    *when using addEventListener('event', function), it will not work as intended if you simply put an existing function where 'function'--the event listener will run the function and then take the result of that function as its parameter. you need to declare a 'nameless function':
+        document.querySelector('.example').addEventListener('click', () => {
+            someExistingFunction();
+        }) 
+    -You are able to listen for events on objects that don't seem to be able to to process your actions, ex:
+        -You are able to listen for keypresses across you whole webpage by adding a 'keydown' event listener to the body element(see 12-rock-paper-scissors)
+
+Some features that se functions as inputs:
+    The array.filter((value, index)=>{...}) runs like the forEach function--as it runs the nested function for each of the values in the array, passing each value and it's index to the nested function.
+        The filter function will "keep" a value of 'true' is returned from the nested function for a given value.
+        If the filter function returns 'false' for a given value it will not be filtered out.
+        The function returns an array of values that meet conditions set withing the nested function.
+    The array.map((value, index)=>{...}) function runs like the forEach function--as it runs the nested function for each of the values in the array, passing each value and it's index to the nested function.
+        The map function will set each value to the "result"(return value) of the nested function interation corresponding to that value.
+
+Closure--if a function has access to a value it will always have access to that value (apparently theres advanced techniques you can do with this knowledge)
