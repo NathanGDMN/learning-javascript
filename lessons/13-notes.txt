@@ -1,0 +1,8 @@
+You can add user defined attributes (data attributes) to html objects.
+    Ex. <button class="add-to-cart-button" data-product-name="${product.name}">
+        -The 'data-product-name' is not a default button attribute but one we added 
+    *Note data attribites must start with 'data-...'
+    To retrive data within these attributes in js you need to:
+        document.querySelector('html-object').dataset. (the name you gave after the "data-.." but in camel case)
+            Ex. for the button above:
+            document.querySelector('.add-to-cart-button').dataset.productName;
