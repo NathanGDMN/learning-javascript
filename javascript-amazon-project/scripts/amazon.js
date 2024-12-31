@@ -1,3 +1,7 @@
+import {cart, addToCart} from '../data/cart.js'; //".." represents the parent folder of the current folder
+import {products} from '../data/products.js';
+import { formatCurrency } from './utils/money.js';
+
 let productsHTML = '';
 
 products.forEach((product)=>{
@@ -20,7 +24,7 @@ products.forEach((product)=>{
           </div>
 
           <div class="product-price">
-            $${(product.priceCents/100).toFixed(2)}
+            $${formatCurrency(product.priceCents/100)}
           </div>
 
           <div class="product-quantity-container">
@@ -56,6 +60,26 @@ console.log(productsHTML);
 
 document.querySelector('.js-products-grid').innerHTML = productsHTML;
 
+function updateCartQuantity(productId, quantity){
+  //Add up and set total cart quantity
+  let cartQuantity = 0;
+  cart.forEach((cartItem)=>{
+      cartQuantity += cartItem.quantity;
+  });
+  document.querySelector('.js-cart-quantity').innerText = cartQuantity;
+}
+
+function displayAddedToCart(productId, addedToCartTimeout){
+  //Display added to cart message:
+  clearTimeout(addedToCartTimeout); //Remove any existing timeout
+        
+  const addedToCartImg = document.querySelector(`.js-added-to-cart-${productId}`)
+  addedToCartImg .classList.add('added-to-cart-clicked');
+  addedToCartTimeout = setTimeout(()=>{
+    addedToCartImg .classList.remove('added-to-cart-clicked');
+  },2000);
+}
+
 document.querySelectorAll('.js-add-to-cart').forEach((button)=>{
     let addedToCartTimeout = 'No timeout set!'
     button.addEventListener('click', ()=>{ 
@@ -63,37 +87,10 @@ document.querySelectorAll('.js-add-to-cart').forEach((button)=>{
 
         const quantity = Number(document.querySelector(`.js-quantity-selector-${productId}`).value);
 
-        //Check if item is already in cart:
-        let matchingItem;
-        cart.forEach((item)=>{
-            if (item.productId === productId){
-                matchingItem = item;
-            }
-        });
+        addToCart(productId, quantity);
 
-        if(matchingItem){  //If the cart already has the selected product in it
-            matchingItem.quantity += quantity;
-        }else{
-            cart.push({
-                productId: productId,
-                quantity: quantity
-            });
-        }
+        updateCartQuantity(productId, quantity);
 
-        //Add up and set total cart quantity
-        cartQuantity = 0;
-        cart.forEach((item)=>{
-            cartQuantity += item.quantity;
-        });
-        document.querySelector('.js-cart-quantity').innerText = cartQuantity;
-
-        //Display added to cart message:
-        clearTimeout(addedToCartTimeout); //Remove any existing timeout
-        
-        const addedToCartImg = document.querySelector(`.js-added-to-cart-${productId}`)
-        addedToCartImg .classList.add('added-to-cart-clicked');
-        addedToCartTimeout = setTimeout(()=>{
-          addedToCartImg .classList.remove('added-to-cart-clicked');
-        },2000);
+        displayAddedToCart(productId, addedToCartTimeout);
     });
 });

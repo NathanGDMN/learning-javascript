@@ -1,0 +1,33 @@
+Up until this point we;ve been running the Javascript for our websites through the use of the <script> tag. In the last lesson, we used multiple script tags in succession:
+    <script src="data/cart.js"></script>
+    <script src="data/products.js"></script>
+    <script src="scripts/amazon.js"></script>
+This implementation is equivalent to simply combinging the code from all of these different files into one large .js file. As a result, naming conflicts can often occur--(declaring a variable with the same name as a variable that already exists).
+
+We can avoid this issue using MODULES. MOdules are any JS files in your project that are not loaded using the script tag.
+
+You can choose when a module runs, and the scope of a module by selectively importing into specific files.
+    For a file to be able to import another, you need to add the attribute: type="module" to the script you want to import a module into
+
+    Importing a variable:
+      In cart.js:
+        export const cart = [];
+      In amazon.js:
+        import {cart} from '../data/cart.js'; //".." represents the parent folder of the current folder
+    
+      You can even rename a variable as you import it:
+        import {cart as myCart} from '../data/cart.js';
+    *The same syntax applies for importing functions
+
+    Importing a module as an object:
+        import * as cartModule from '../data/cart.js';
+
+        cartModule.cart;
+        cartModule.addToCart();
+
+      This imports everything from cart.js into an object named cartModule
+
+<a> elements can be used as a link element. They can act as a container for other html elements liek a <div> but if you click any of the elements on the page they take you to the href='...' of the <a> tag
+
+Every html element you retrieve from the DOM has a .remove() function that will remove it from the page:
+    document.querySelector(`.js-cart-item-container-${productId}`).remove();
