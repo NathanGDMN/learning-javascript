@@ -24,7 +24,7 @@ products.forEach((product)=>{
           </div>
 
           <div class="product-quantity-container">
-            <select>
+            <select class="js-quantity-selector-${product.id}">
               <option selected value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -40,7 +40,7 @@ products.forEach((product)=>{
 
           <div class="product-spacer"></div>
 
-          <div class="added-to-cart">
+          <div class="added-to-cart js-added-to-cart-${product.id}">
             <img src="images/icons/checkmark.png">
             Added
           </div>
@@ -57,31 +57,43 @@ console.log(productsHTML);
 document.querySelector('.js-products-grid').innerHTML = productsHTML;
 
 document.querySelectorAll('.js-add-to-cart').forEach((button)=>{
+    let addedToCartTimeout = 'No timeout set!'
     button.addEventListener('click', ()=>{ 
         const productId = button.dataset.productId;
 
-        let matchingItem;
+        const quantity = Number(document.querySelector(`.js-quantity-selector-${productId}`).value);
 
+        //Check if item is already in cart:
+        let matchingItem;
         cart.forEach((item)=>{
             if (item.productId === productId){
                 matchingItem = item;
             }
         });
 
-        if(matchingItem){
-            matchingItem.quantity += 1;
+        if(matchingItem){  //If the cart already has the selected product in it
+            matchingItem.quantity += quantity;
         }else{
             cart.push({
                 productId: productId,
-                quantity: 1
+                quantity: quantity
             });
         }
 
+        //Add up and set total cart quantity
         cartQuantity = 0;
         cart.forEach((item)=>{
             cartQuantity += item.quantity;
         });
-
         document.querySelector('.js-cart-quantity').innerText = cartQuantity;
+
+        //Display added to cart message:
+        clearTimeout(addedToCartTimeout); //Remove any existing timeout
+        
+        const addedToCartImg = document.querySelector(`.js-added-to-cart-${productId}`)
+        addedToCartImg .classList.add('added-to-cart-clicked');
+        addedToCartTimeout = setTimeout(()=>{
+          addedToCartImg .classList.remove('added-to-cart-clicked');
+        },2000);
     });
 });
