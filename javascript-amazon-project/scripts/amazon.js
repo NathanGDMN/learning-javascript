@@ -1,7 +1,11 @@
-import {cart, addToCart} from '../data/cart.js'; //".." represents the parent folder of the current folder
+import {cart, addToCart, calculateCartQuantity} from '../data/cart.js'; //".." represents the parent folder of the current folder
 import {products} from '../data/products.js';
 import { formatCurrency } from './utils/money.js';
 
+//Calculate cartquantity
+updateCartQuantity();
+
+//Generate and load the page:
 let productsHTML = '';
 
 products.forEach((product)=>{
@@ -61,12 +65,7 @@ console.log(productsHTML);
 document.querySelector('.js-products-grid').innerHTML = productsHTML;
 
 function updateCartQuantity(productId, quantity){
-  //Add up and set total cart quantity
-  let cartQuantity = 0;
-  cart.forEach((cartItem)=>{
-      cartQuantity += cartItem.quantity;
-  });
-  document.querySelector('.js-cart-quantity').innerText = cartQuantity;
+  document.querySelector('.js-cart-quantity').innerText = calculateCartQuantity();
 }
 
 function displayAddedToCart(productId, addedToCartTimeout){
