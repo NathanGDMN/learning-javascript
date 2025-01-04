@@ -1,0 +1,14 @@
+External Javascript libraries can be loaded into your project in two ways:
+    -Using a <script> with an src attribute set to a .js file hosted online
+    -Using import where the string after from is set to a .esm.js file hosted online.
+The latter is the recommended option for avoiding naming conflicts
+
+When importing a module whether internal or external many may have whats called a 'default export'. 
+    -Each module may only have one default export. 
+    -A default export allows you to type the import statement without curly brackets--importing a single item:
+        import dayjs from "https://unpkg.com/dayjs..."
+When using external libraries you must comply with thier set export method for example if you try: 
+    import {dayjs} from "https://unpkg.com/dayjs..."
+It will give you an error. (dayjs has a: export default dayjs but no export dayjs(){...} ). 
+
+The regular was of exporting we've been using is called a Named Export. 
