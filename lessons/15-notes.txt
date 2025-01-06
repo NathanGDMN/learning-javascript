@@ -12,3 +12,12 @@ When using external libraries you must comply with thier set export method for e
 It will give you an error. (dayjs has a: export default dayjs but no export dayjs(){...} ). 
 
 The regular was of exporting we've been using is called a Named Export. 
+
+
+So far when we've altered any of the JS data for a web page we've decided to simply alter the sections of the page that the data changes affects. But what happens if there are too many sections to alter for this to be effecient? You should re render the whole page.
+    To re-render the page simply place all of the code responsible for generating the html for the page into a function. Then just call said function after a data alteration is made to see the changes.
+    This follows the MVC coding model. Where the rendered image (view), should always follow a change to the data, that was initiated by a 'controller'--an interactive element:
+            
+            Model -> view
+              \       /
+              Controller

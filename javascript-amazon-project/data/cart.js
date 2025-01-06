@@ -63,7 +63,6 @@ export function calculateCartQuantity(){
 export function updateQuantity(productId, newQuantity){
     //Find item in cart:
     let matchingItem;
-
     cart.forEach((cartItem)=>{
         if (cartItem.productId == productId){
             matchingItem = cartItem;
@@ -71,6 +70,20 @@ export function updateQuantity(productId, newQuantity){
     });
 
     matchingItem.quantity = newQuantity;
+
+    saveToStorage();
+}
+
+export function updateDeliveryOption(productId, deliveryOptionId){
+    //Find item in cart:
+    let matchingItem;
+    cart.forEach((cartItem)=>{
+        if (cartItem.productId == productId){
+            matchingItem = cartItem;
+        }
+    });
+
+    matchingItem.deliveryOptionId = deliveryOptionId;
 
     saveToStorage();
 }
