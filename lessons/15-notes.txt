@@ -7,6 +7,7 @@ When importing a module whether internal or external many may have whats called 
     -Each module may only have one default export. 
     -A default export allows you to type the import statement without curly brackets--importing a single item:
         import dayjs from "https://unpkg.com/dayjs..."
+    -You can still rename default imports when you import them
 When using external libraries you must comply with thier set export method for example if you try: 
     import {dayjs} from "https://unpkg.com/dayjs..."
 It will give you an error. (dayjs has a: export default dayjs but no export dayjs(){...} ). 
