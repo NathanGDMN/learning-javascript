@@ -31,6 +31,10 @@ describe('test suite: renderOrderSummary', ()=>{
         renderOrderSummary(); //Render the cart
     });
 
+    afterEach(()=>{
+        document.querySelector('.js-test-container').innerHTML=''; //Remove the html we rendered so it doesnt appear on the test page (test.html)
+    });
+
     it('displays the cart', ()=>{ //Check if the contents of the generated html is correct
         expect(
             document.querySelectorAll('.js-cart-item-container').length
@@ -44,7 +48,18 @@ describe('test suite: renderOrderSummary', ()=>{
             document.querySelector(`.js-product-quantity-${productId2}`).innerText
         ).toContain('Quantity: 1');
 
-        document.querySelector('.js-test-container').innerHTML=''; //Remove the html we rendered so it doesnt appear on the test page (test.html)
+        //Check to make sure the product names are correct
+        expect(
+            document.querySelector(`.js-product-name-${productId1}`).innerText
+        ).toEqual('Black and Gray Athletic Cotton Socks - 6 Pairs');
+        expect(
+            document.querySelector(`.js-product-name-${productId2}`).innerText
+        ).toEqual('Intermediate Size Basketball');
+
+        //Check to make sure product prices are displayed in correct format
+        expect(
+            document.querySelector(`.product-price`).innerText.charAt(0)
+        ).toEqual('$'); //Checks first instance of class: 'product-price'
     });
 
     it('removes a product', ()=>{ //Check if the remove from cart button on the render products works correctly
@@ -59,11 +74,12 @@ describe('test suite: renderOrderSummary', ()=>{
         expect(
             document.querySelector(`.js-cart-item-container-${productId2}`)
         ).not.toEqual(null); //Check to make sure the not deleted item still exists
+        expect(
+            document.querySelector(`.js-product-name-${productId2}`).innerText
+        ).toEqual('Intermediate Size Basketball');//Check to make sure the product name of the not deleted item is correct:
         
         //Check if the cart variable was updated correctly:
         expect(cart.length).toEqual(1) //Should only have one item remaining
         expect(cart[0].productId).toEqual(productId2); //It should be the second product remaining
-
-        document.querySelector('.js-test-container').innerHTML=''; //Remove the html we rendered so it doesnt appear on the test page (test.html)
     });
 });

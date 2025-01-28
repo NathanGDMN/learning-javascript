@@ -1,3 +1,57 @@
 You can click any link using code by simply using the DOM to select the item. Then using the click() function:
     document.querySelector(`.js-delete-link-${productId1}`).click();
+
+Types of tests:
+-Manual--Tests performed by manually checking if the code produced the correct output
+-Automated--Using a computer to check if code produced the correct output
+-Integration Tests--Automated test checking if data was displyed on the webpage correctly(inputs come from the DOm/webpage)
+
+A testing framework is any external library you can import that attempts ot simplify the process of testing your application. 
+We will be using Jasmine as the testing framework in this lesson.
+
+Jasmine Testing Framework:
+0. Download Jasmine from thier website
+*You will be using the tests.html webpage that comes with Jasmine to perform the tests on your webpage
+-To create a .js file for testing functions, simply: 
+    (1) create a .js file in the Jasmine folder (the one with tests.html)
+    (2) import the functions you want to test into the .js file
+    (3) add the .js file into tests.html as a script tag
+    (4) Within the .js file write any tests you want to perform (make sure to use the Jasmine functions)
+    (5) Open the tests.html file with live server to view the results of the tests
+
+Within the .js test file:
+-To create a test in Jasmine you use using the expect() function
+    -The expect() funciton will run a function, and check if it meets conditions outlined by its called subfunction
+    -To utilize it you need to call one of the sub functions:
+        - expect(funct).toEqual(value);
+            -Will check if the 'funct' returns a value equal to value
+        - expect(funct).toHaveBeenCalledWith('params')
+            -Will check if the code/function was ever called with parameters matching 'params'
+        
+    -The expect function will appear green on the tests.html webpage if its condition was met and red if its conditions were not met
+
+-To run tests in Jasmine you need to first assign them a name/description using the it() function.
+    -Takes two parameters:
+        -The first is simply a description of the tests it contains--will appear on the webpage
+        -The second is a FUNCTION containing the tests (expect() functions) you want to group
+
+-You are able to group these tests in Jasmine using the describe() function--which has parameters similar to the it() function
+    -Takes two parameters:
+        -The first is simply a description of the tests it contains--will appear on the webpage
+        -The second is a FUNCTION containing the tests (expect() functions) you want to group
+    -You can nest describe functions (pretty sure)
+
+Hooks:
+Are ways of reusing code within it() functions. They are functions you can call and give a function, then everytime you call a later it() function, it will run the hook function's code. 
+
+Some common hook functions:
+-beforeEach(()=>{...some code...});
+    -Runs the block of code for each it() function, before each it() function 
+-afterEach(()=>{...some code...});
+    -Runs the block of code for each it() function, after each it() function 
+-beforeAll(()=>{...some code...});
+    -Runs the block of code once before all it() functions
+-afterAll(()=>{...some code...});
+    -Runs the block of code once after all it() functions
+
     
