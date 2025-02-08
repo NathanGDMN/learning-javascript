@@ -1,0 +1,47 @@
+So for throughout this course we've been using procedural programming--we've been dividing our code up into functions.
+
+Object Oriented programming is when, istead of simply using functions, you divide your code up into objects.
+
+Object definition reminder:
+
+const object1 = {
+    field : 22,
+    method(){ //Equivalent to 'method : function(){}'
+        console.log('hello world');
+    }  
+};
+
+The keyword 'this' allows you to reference an object within itself--it's own definition, so that when you change the object name it doesn't affect the object's definition.
+
+Object oriented programming attempts to model the real world by dividing our code into virtual objects that have properties, and actions we can take with them.
+
+Oject oriented programming also makes it easy to have multiple objects, or multiple instances of variables/scripts on your webpage. For example, having two seperate carts on your Amazon webpage.
+    -You can create and generate objects using functions by placing the entire object definition within a function.
+        -Ex.
+            function Cart(){
+                cart = {...object definition...};
+                return cart;
+            }
+
+            cart = Cart();
+            businessCart = cart();
+
+-*The naming convention for functions or classes that generate or create objects is PascalCase--capitalizing the first letter of every word
+
+Classes are a more efficent way to generate objects than functions. They are useful for generating multiple objects of similiar or same funcitonallity--as classes have additional features for object oriented programming.
+    -The syntax for classes slightly differs from regular objects to define a class:
+        class Cart {
+            property1 = 1;
+            method1(){...}
+            method2(){...}
+        }    
+        -The syntax for creating a class object:
+        const cart1 = new Cart();
+        -If you want to simply declare a parameter but dont have any initial value you want to put in it, instead of typing: 'property1 = undefined;' you can use 'property1;'
+    -Each object we generate from a class is called a class 'instance'
+        -You can check if a given object is an instance of a given class by using:
+            console.log(mysteriousClass instanceof knownClass);
+    -One of the additional features a Class has for creating objects is the constructior. The construsctor is a method defined within a class that runs when an object is created. To define a constructior, simply define aa method called 'constructor(){...}' within you class (see cart-class.js)
+        -Cart can be given parameters to make some of the setup code variable
+    -Classes also support private properties and methods--allow you to designate certain properties as private, so that they can only be acessed within a class. To do this simply place a '#' infront of the property/method definition inside the class.
+        -Anytime you accesss the method or property within the class you will need to also use the # 
